@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
 
   before_action :set_recipe, only: [:show, :update, :destroy, :edit]
   def new
-    @recipe = Recipe.new
+    @recipe = Recipe.new(user_id: params[:user_id])
   end
 
   def create
@@ -37,7 +37,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name)
+    params.require(:recipe).permit(:name, :user_id)
   end
 
 end
