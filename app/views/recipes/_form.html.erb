@@ -1,6 +1,11 @@
-<%= form_for(recipe) do |f| %>
+<%= form_for recipe do |f| %>
   <%= f.hidden_field :user_id %>
   <p>Name: <%= f.text_field :name %></p>
+  <%= f.fields_for :ingredients do |i| %>
+    <p>Name: <%= i.text_field :name %></p>
+    <p>Unit: <%= i.text_field :unit %></p>
+    <p>Amount: <%= i.text_field :amount %></p>
+  <% end %>
   <p>Method: <%= f.text_area :method %></p>
   <p>Notes: <%= f.text_area :notes %></p>
   <p><%= f.submit %></p>

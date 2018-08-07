@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :update, :destroy, :edit]
   def new
     @recipe = Recipe.new(user_id: params[:user_id])
+    @recipe.ingredients.build
   end
 
   def create
