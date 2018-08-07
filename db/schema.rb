@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2018_08_04_215711) do
   end
 
   create_table "inventories", force: :cascade do |t|
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 2018_08_04_215711) do
     t.string "name"
     t.text "notes"
     t.text "method"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
