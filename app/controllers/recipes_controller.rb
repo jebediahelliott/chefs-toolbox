@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
 
   before_action :set_recipe, only: [:show, :update, :destroy, :edit]
   def new
+    binding.pry
     @recipe = Recipe.new
   end
 
