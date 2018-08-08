@@ -8,12 +8,11 @@ class RecipesController < ApplicationController
     @recipe.amounts.build
     @recipe.amounts.build
     @recipe.amounts.build
-    
+
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
-    binding.pry
     if @recipe.save
       redirect_to @recipe
     else
@@ -34,7 +33,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-
+    
   end
 
   private

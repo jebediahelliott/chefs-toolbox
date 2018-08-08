@@ -1,2 +1,5 @@
 <h1><%= @user.name %></h1>
-<%= link_to "New Recipe", new_user_recipe_path(@user) %>
+<p><%= link_to "New Recipe", new_user_recipe_path(@user) %></p>
+<% @user.recipes.each do |recipe| %>
+  <p><%= link_to recipe.name, user_recipe_path(@user, recipe) %></p>
+<% end %>

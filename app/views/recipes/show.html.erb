@@ -1,8 +1,10 @@
 <h1><%= @recipe.name %></h1>
-<% @recipe.ingredients.each do |i| %>
-  <h3><%= i.name i.amounts[0].ingredient_amount i.unit%></h3>
+<% @recipe.amounts.each do |a| %>
+  <h3><%= "#{a.ingredient.name}: #{a.ingredient_amount} #{a.ingredient.unit}"%></h3>
 <% end %>
 <h4>Method</h4>
 <p><%= @recipe.method %></p>
 <h4>Notes</h4>
 <p><%= @recipe.notes %></p>
+<%= link_to "Edit", edit_user_recipe_path(@recipe) %>
+<%= link_to "Delete", "/users/#{@recipe.user_id}/recipes/#{@recipe.id}", method: :delete %>
