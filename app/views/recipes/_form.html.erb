@@ -2,9 +2,11 @@
   <%= f.hidden_field :user_id %>
   <p>Name: <%= f.text_field :name %></p>
   <%= f.fields_for :ingredients do |i| %>
-    <p>Name: <%= i.text_field :name %></p>
-    <p>Unit: <%= i.text_field :unit %></p>
-    <p>Amount: <%= i.text_field :amount %></p>
+    <p>
+    Ingredient: <%= i.text_field 'ingredients_attributes[][name]' %>
+    Unit: <%= i.text_field 'ingredients_attributes[][unit]' %>
+    Amount: <%= i.text_field 'ingredients_attributes[][ingredient_amount]' %>
+    </p>
   <% end %>
   <p>Method: <%= f.text_area :method %></p>
   <p>Notes: <%= f.text_area :notes %></p>
