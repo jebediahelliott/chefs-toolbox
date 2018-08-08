@@ -1,13 +1,15 @@
 <%= form_for recipe do |f| %>
   <%= f.hidden_field :user_id %>
   <p>Name: <%= f.text_field :name %></p>
-  <%= f.fields_for :ingredients do |i| %>
+  <%= f.fields_for :amounts do |a| %>
     <p>
-    Ingredient: <%= i.text_field 'ingredients_attributes[][name]' %>
-    Unit: <%= i.text_field 'ingredients_attributes[][unit]' %>
-    Amount: <%= i.text_field 'ingredients_attributes[][ingredient_amount]' %>
+      Amount: <%= a.text_field :ingredient_amount %>
+      <%= a.fields_for :ingredient, a.object.build_ingredient do |i| %>
+        Ingredient: <%= i.text_field :name %>
+        Unit: <%= i.text_field :unit %>
+      <% end %>
     </p>
-  <% end %>
+    <% end %>
   <p>Method: <%= f.text_area :method %></p>
   <p>Notes: <%= f.text_area :notes %></p>
   <p><%= f.submit %></p>
