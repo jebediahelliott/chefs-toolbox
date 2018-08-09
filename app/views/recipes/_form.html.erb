@@ -4,9 +4,9 @@
   <%= f.fields_for :amounts do |a| %>
     <p>
       Amount: <%= a.text_field :ingredient_amount %>
-      <%= a.fields_for :ingredient, a.object.build_ingredient do |i| %>
-        Ingredient: <%= i.text_field :name %>
+      <%= a.fields_for :ingredient do |i| %>
         Unit: <%= i.text_field :unit %>
+        Ingredient: <%= i.text_field :name %>
       <% end %>
     </p>
     <% end %>
@@ -14,3 +14,4 @@
   <p>Notes: <%= f.text_area :notes %></p>
   <p><%= f.submit %></p>
 <% end %>
+<!-- #, a.object.build_ingredient -->

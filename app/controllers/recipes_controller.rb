@@ -3,11 +3,10 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :update, :destroy, :edit]
   def new
     @recipe = Recipe.new(user_id: params[:user_id])
-    @recipe.amounts.build
-    @recipe.amounts.build
-    @recipe.amounts.build
-    @recipe.amounts.build
-    @recipe.amounts.build
+    5.times do
+      @recipe.amounts.build
+      @recipe.amounts.last.build_ingredient
+    end
   end
 
   def create
@@ -24,7 +23,8 @@ class RecipesController < ApplicationController
   end
 
   def update
-
+    @recipe.update(recipe_params)
+    redirect_to @recipe
   end
 
   def show
