@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     resources :recipes
     resources :inventories
   end
-  resource :session, only: [:index, :create]
+  resource :sessions, only: [:new, :create, :destroy]
   root 'sessions#new'
-  resources :recipes 
+  resources :recipes
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

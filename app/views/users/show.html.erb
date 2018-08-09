@@ -3,3 +3,4 @@
 <% @user.recipes.each do |recipe| %>
   <p><%= link_to recipe.name, user_recipe_path(@user, recipe) %></p>
 <% end %>
+<%= link_to "Log Out", sessions_path, method: :delete %>
