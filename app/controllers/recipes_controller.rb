@@ -8,7 +8,6 @@ class RecipesController < ApplicationController
     @recipe.amounts.build
     @recipe.amounts.build
     @recipe.amounts.build
-
   end
 
   def create
@@ -29,12 +28,10 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
   end
 
   def destroy
     Recipe.find(params[:id]).delete
-    binding.pry
     redirect_to user_path(params[:user_id])
   end
 
