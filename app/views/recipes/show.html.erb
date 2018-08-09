@@ -1,6 +1,8 @@
 <h1><%= @recipe.name %></h1>
 <% @recipe.amounts.each do |a| %>
-  <h3><%= "#{a.ingredient.name}: #{a.ingredient_amount} #{a.ingredient.unit}"%></h3>
+  <% if !a.ingredient_amount.empty? %>
+    <h3><%= "#{a.ingredient.name}: #{a.ingredient_amount} #{a.ingredient.unit}"%></h3>
+  <% end %>
 <% end %>
 <h4>Method</h4>
 <p><%= @recipe.method %></p>
