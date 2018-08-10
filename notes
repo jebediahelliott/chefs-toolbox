@@ -1,14 +1,11 @@
 # Users can create recipes
 # Recipes have ingredients
-Users have inventories
-Making(cooking) a recipe adjusts Inventory
-Users can CRUD recipes and inventories
+# Users can CRUD recipes
 
-# 1. Create Users, Recipes, Ingredients, Amounts(join table), Inventory
+# 1. Create Users, Recipes, Ingredients, Amounts(join table)
 # 2. Users can Sign up
 # 3. Users can login and logout
 # 4. Users can create a recipe
-5. Users can take Inventory
 6. Users can search a recipe by ingredient.
 7. Validations to ensure user can only view or edit their own content.
 # 8. Secure passwords

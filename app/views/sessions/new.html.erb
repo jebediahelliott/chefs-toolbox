@@ -4,4 +4,5 @@
   <p>Password: <%= password_field_tag :password %></p>
   <p><%= submit_tag "Log In" %></p>
 <% end %>
+<%= link_to 'Log In with Facebook', '/auth/facebook' %>
 <%= link_to "Sign Up", new_user_path %>
