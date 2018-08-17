@@ -10,9 +10,11 @@
   </head>
 
   <body>
-    <%= link_to "Home", user_path(session[:id]) %>
-    <%= link_to "New Recipe", new_user_recipe_path(session[:id]) %>
-    <%= link_to "Log Out", sessions_path, method: :delete %>
+    <% if session[:id] %>
+      <%= link_to "Home", user_path(session[:id]) %>
+      <%= link_to "New Recipe", new_user_recipe_path(session[:id]) %>
+      <%= link_to "Log Out", sessions_path, method: :delete %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
