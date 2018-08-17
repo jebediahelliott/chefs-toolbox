@@ -11,9 +11,12 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    if valid_ingredients(@recipe) && @recipe.save
+    # @ingredients =
+    # binding.pry
+    if ingredients_validations(@recipe) && @recipe.save
       redirect_to @recipe
     else
+      @recipe.valid?
       render :new
     end
   end
@@ -45,9 +48,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
-  def valid_ingredients(recipe)
+  def ingredients_validations(recipe)
     recipe.amounts.all? do |amount|
-      amount.ingredient.save
+      amount.ingredient.valid?
     end
   end
 

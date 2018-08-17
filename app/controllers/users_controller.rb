@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy, :edit]
   def new
     @user = User.new
+    render :layout => "sessions"
   end
 
   def create
