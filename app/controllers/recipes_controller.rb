@@ -37,6 +37,11 @@ class RecipesController < ApplicationController
 
   end
 
+  def index
+    @item = params[:item]
+    @recipes = Recipe.search(params[:item])
+  end
+
   def destroy
     Recipe.find(params[:id]).delete
     redirect_to user_path(params[:user_id])
@@ -55,7 +60,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :user_id, :method, :notes, amounts_attributes: [:ingredient_amount, ingredient_attributes: [:name, :unit]])
+    params.require(:recipe).permit(:name, :item, :user_id, :method, :notes, amounts_attributes: [:ingredient_amount, ingredient_attributes: [:name, :unit]])
   end
 
 end
