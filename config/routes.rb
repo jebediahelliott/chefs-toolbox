@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :users do
     resources :recipes
-    resources :inventories
   end
   resource :sessions, only: [:new, :create, :destroy]
   root 'sessions#new'
