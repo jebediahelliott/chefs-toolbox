@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_07_210526) do
+ActiveRecord::Schema.define(version: 2018_08_18_161121) do
 
   create_table "amounts", force: :cascade do |t|
     t.integer "recipe_id"
@@ -42,11 +42,7 @@ ActiveRecord::Schema.define(version: 2018_08_07_210526) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'email_address' for column 'email'
 
 end
