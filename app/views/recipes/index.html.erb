@@ -1,4 +1,4 @@
 <h1>Your Recipes Contatining <%= @item %></h1>
-<%=  @recipes.each do |recipe| %>
+<%  @recipes.each do |recipe| %>
   <p><%= link_to recipe.name, user_recipe_path(recipe.user_id, recipe) %></p>
 <% end %>
