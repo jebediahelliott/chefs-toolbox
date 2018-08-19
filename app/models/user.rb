@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :recipes
   has_many :inventories
-  has_secure_password
+  has_secure_password(validations: false)
   validates :name, presence: true, uniqueness: true
-  validates :password, presence: true
+  # validates :password, presence: true
 end
