@@ -11,12 +11,9 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    # @ingredients =
-    # binding.pry
-    if ingredients_validations(@recipe) && @recipe.save
+    if @recipe.save
       redirect_to @recipe
     else
-      @recipe.valid?
       render :new
     end
   end
@@ -29,8 +26,11 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe.update(recipe_params)
-    redirect_to @recipe
+    if @recipe.update(recipe_params)
+      redirect_to @recipe
+    else
+      render :edit
+    end
   end
 
   def show
@@ -53,14 +53,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
-  def ingredients_validations(recipe)
-    recipe.amounts.all? do |amount|
-      amount.ingredient.valid?
-    end
-  end
-
   def recipe_params
-    params.require(:recipe).permit(:name, :item, :user_id, :method, :notes, amounts_attributes: [:ingredient_amount, ingredient_attributes: [:name, :unit]])
+    params.require(:recipe).permit(:name, :item, :user_id, :method, :notes, amounts_attributes: [:ingredient_amount, :id, ingredient_attributes: [:name, :unit]])
   end
 
 end
