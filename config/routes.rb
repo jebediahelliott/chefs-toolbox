@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
   resources :ingredients
+  resources :menus
   resources :users do
     resources :recipes
+    resources :menus
   end
+
   resource :sessions, only: [:new, :create, :destroy]
   root 'sessions#new'
   resources :recipes
