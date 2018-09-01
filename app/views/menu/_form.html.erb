@@ -1,7 +1,0 @@
-<%= form_for menu do |f| %>
-  <p><%= f.text_field :name %></p>
-  <p>
-    <%= f.text_field :monday_lunch %>
-    <%= f.collection_select :recipe_ids, Recipe.all, :id, :name%>
-  </p>
-<% end %>
