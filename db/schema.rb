@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2018_09_01_153720) do
     t.string "saturday_dinner"
     t.string "sunday_lunch"
     t.string "sunday_dinner"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

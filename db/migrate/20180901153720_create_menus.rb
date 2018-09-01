@@ -2,7 +2,6 @@ class CreateMenus < ActiveRecord::Migration[5.2]
   def change
     create_table :menus do |t|
       t.string :name
-      t.integer :user_id
       t.string :monday_lunch
       t.string :monday_dinner
       t.string :tuesday_lunch
@@ -17,6 +16,7 @@ class CreateMenus < ActiveRecord::Migration[5.2]
       t.string :saturday_dinner
       t.string :sunday_lunch
       t.string :sunday_dinner
+      t.integer :user_id
       t.timestamps
     end
   end
