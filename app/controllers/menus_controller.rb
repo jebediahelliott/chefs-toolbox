@@ -6,7 +6,7 @@ class MenusController < ApplicationController
   end
 
   def new
-    @menu = Menu.new
+    @menu = Menu.new(user_id: params[:user_id])
   end
 
   def create
@@ -41,7 +41,7 @@ class MenusController < ApplicationController
   end
 
   def menu_params
-    params.require(:menu).permit(:name, :monday_lunch, :monday_dinner, :tuesday_lunch, :tuesday_dinner, :wednesday_lunch, :wednesday_dinner, :thursday_lunch, :thursday_dinner, :friday_lunch, :friday_dinner, :saturday_lunch, :saturday_diner, :sunday_lunch, :sunday_dinner)
+    params.require(:menu).permit(:name, :user_id :monday_lunch, :monday_dinner, :tuesday_lunch, :tuesday_dinner, :wednesday_lunch, :wednesday_dinner, :thursday_lunch, :thursday_dinner, :friday_lunch, :friday_dinner, :saturday_lunch, :saturday_diner, :sunday_lunch, :sunday_dinner)
   end
 
 end

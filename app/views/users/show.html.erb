@@ -3,6 +3,11 @@
   Search by Ingredient <%= text_field_tag :item %>
   <%= submit_tag "Search" %>
 <% end %>
+<h3>Recipes</h3>
 <% @user.recipes.each do |recipe| %>
   <p><%= link_to recipe.name, user_recipe_path(@user, recipe) %></p>
+<% end %>
+<h3>Menus</h3>
+<%= @user.menus.each do |menu| %>
+  <p><%= link_to menu.name, user_menu_path(@user, menu) %></p>
 <% end %>
