@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_09_01_153720) do
   end
 
   create_table "menus", force: :cascade do |t|
-    t.string "name"
+    t.date "menu_date"
     t.string "monday_lunch"
     t.string "monday_dinner"
     t.string "tuesday_lunch"

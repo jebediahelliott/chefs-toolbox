@@ -1,6 +1,6 @@
 <%= form_for menu do |f| %>
   <%= f.hidden_field :user_id %>
-  <p>Menu Name: <%= f.text_field :name %></p>
+  <p>Week Ending: <%= f.date_select :menu_date %></p>
 
   <p>Monday Lunch: <%= f.text_area :monday_lunch %></p>
   <p>Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%></p>

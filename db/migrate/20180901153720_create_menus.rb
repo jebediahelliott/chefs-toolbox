@@ -1,7 +1,7 @@
 class CreateMenus < ActiveRecord::Migration[5.2]
   def change
     create_table :menus do |t|
-      t.string :name
+      t.date :menu_date
       t.string :monday_lunch
       t.string :monday_dinner
       t.string :tuesday_lunch
