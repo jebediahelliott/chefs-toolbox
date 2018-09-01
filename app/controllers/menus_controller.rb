@@ -27,7 +27,7 @@ class MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.find(params[:id])
+    binding.pry
   end
 
   def destroy
