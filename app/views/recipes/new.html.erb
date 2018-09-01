@@ -1,4 +1,4 @@
-<% if @recipe.errors.any? || !ingredient_errors(@recipe).empty? %>
+<% if @recipe.errors.any? %>
   <div id="error_explanation">
     <h2>
       Please fill in all required fields.
@@ -15,3 +15,6 @@
   </div>
 <% end %>
 <%= render partial: "form", locals: {recipe: @recipe} %>
+
+
+ <!-- || !ingredient_errors(@recipe).empty?  -->

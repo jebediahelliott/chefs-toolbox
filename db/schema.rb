@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_18_161121) do
+ActiveRecord::Schema.define(version: 2018_09_01_153720) do
 
   create_table "amounts", force: :cascade do |t|
     t.integer "recipe_id"
@@ -29,6 +29,26 @@ ActiveRecord::Schema.define(version: 2018_08_18_161121) do
 
   create_table "inventories", force: :cascade do |t|
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.string "name"
+    t.string "monday_lunch"
+    t.string "monday_dinner"
+    t.string "tuesday_lunch"
+    t.string "tuesday_dinner"
+    t.string "wednesday_lunch"
+    t.string "wednesday_dinner"
+    t.string "thursday_lunch"
+    t.string "thursday_dinner"
+    t.string "friday_lunch"
+    t.string "friday_dinner"
+    t.string "saturday_lunch"
+    t.string "saturday_dinner"
+    t.string "sunday_lunch"
+    t.string "sunday_dinner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
   belongs_to :user
+  belongs_to :menu, required: false
   has_many :amounts
   has_many :ingredients, through: :amounts
   validates :name, presence: true, uniqueness: true
