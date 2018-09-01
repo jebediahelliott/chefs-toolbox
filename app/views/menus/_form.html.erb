@@ -1,7 +1,59 @@
 <%= form_for menu do |f| %>
   <p>Menu Name: <%= f.text_field :name %></p>
   <p>
-    Monday Lunch: <%= f.text_field :monday_lunch %>
+    Monday Lunch: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Monday Dinner: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Tuesday Lunch: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Tuesday Dinner: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Wednesday Lunch: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Wednesday Dinner: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Thursday Lunch: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Thursday Dinner: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Friday Lunch: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Friday Dinner: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Saturday Lunch: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Saturday Dinner: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Sunday Lunch: <%= f.text_area :monday_lunch %>
+    Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
+  </p>
+  <p>
+    Sunday Dinner: <%= f.text_area :monday_lunch %>
     Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%>
   </p>
   <%= f.submit %>
