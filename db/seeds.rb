@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+jeb = User.create(name: 'Jeb', password: '12345', email: 'email@email.com')
+meatloaf = Recipe.create({name: "Meatloaf", category: "Entree"})
+meatloaf.amounts.build(ingredient_amount: "10")
+meatloaf.amounts.last.build_ingredient(unit: "lbs", name: "Ground Beef")
+meatloaf.amounts.build(ingredient_amount: "10")
+meatloaf.amounts.last.build_ingredient(unit: "ea", name: "Eggs")
+meatloaf.amounts.build(ingredient_amount: "5")
+meatloaf.amounts.last.build_ingredient(unit: "Cups", name: "Bread Crumbs")
+meatloaf.amounts.build(ingredient_amount: "2")
+meatloaf.amounts.last.build_ingredient(unit: "Cups", name: "Milk")
+meatloaf.save
+jeb.recipes << meatloaf

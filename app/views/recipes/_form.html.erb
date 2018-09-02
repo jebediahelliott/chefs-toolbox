@@ -1,6 +1,7 @@
 <%= form_for recipe do |f| %>
   <%= f.hidden_field :user_id %>
   <p>Name: <%= f.text_field :name %></p>
+  <p>Type: <%= f.select :category, ["Entree", "Side"] %></p>
   <%= f.fields_for :amounts do |a| %>
     <p>
       Amount: <%= a.text_field :ingredient_amount %>
