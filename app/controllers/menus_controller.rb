@@ -11,6 +11,7 @@ class MenusController < ApplicationController
 
   def create
     @menu = Menu.new(menu_params)
+    binding.pry
     if @menu.save
       redirect_to @menu
     else
@@ -41,7 +42,7 @@ class MenusController < ApplicationController
   end
 
   def menu_params
-    params.require(:menu).permit(:menu_date, :user_id, :monday_lunch, :monday_dinner, :tuesday_lunch, :tuesday_dinner, :wednesday_lunch, :wednesday_dinner, :thursday_lunch, :thursday_dinner, :friday_lunch, :friday_dinner, :saturday_lunch, :saturday_dinner, :sunday_lunch, :sunday_dinner)
+    params.require(:menu).permit(:menu_date, {:recipe_ids => []}, :user_id, :monday_lunch, :monday_dinner, :tuesday_lunch, :tuesday_dinner, :wednesday_lunch, :wednesday_dinner, :thursday_lunch, :thursday_dinner, :friday_lunch, :friday_dinner, :saturday_lunch, :saturday_dinner, :sunday_lunch, :sunday_dinner)
   end
 
 end
