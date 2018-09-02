@@ -5,7 +5,7 @@
   <p>Monday Lunch: <%= f.text_area :monday_lunch %></p>
   <p>Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%></p>
 
-  <p>Monday Dinner: <%= f.text_area :monday_diner %></p>
+  <p>Monday Dinner: <%= f.text_area :monday_dinner %></p>
   <p>Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%></p>
 
   <p>Tuesday Lunch: <%= f.text_area :tuesday_lunch %></p>
@@ -35,7 +35,7 @@
   <p>Saturday Lunch: <%= f.text_area :saturday_lunch %></p>
   <p>Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%></p>
 
-  <p>Saturday Dinner: <%= f.text_area :saturday_diner %></p>
+  <p>Saturday Dinner: <%= f.text_area :saturday_dinner %></p>
   <p>Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%></p>
 
   <p>Sunday Lunch: <%= f.text_area :sunday_lunch %></p>
