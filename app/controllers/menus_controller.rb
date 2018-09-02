@@ -24,7 +24,11 @@ class MenusController < ApplicationController
   end
 
   def update
-
+    if @menu.update(menu_params)
+      redirect_to @menu
+    else
+      render :edit
+    end
   end
 
   def show
@@ -32,7 +36,8 @@ class MenusController < ApplicationController
   end
 
   def destroy
-
+    Menu.find(params[:id]).delete
+    redirect_to user_path(params[:user_id])
   end
 
   private
