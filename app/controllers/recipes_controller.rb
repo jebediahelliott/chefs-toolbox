@@ -38,8 +38,12 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @item = params[:item]
-    @recipes = Recipe.search(params[:item])
+    if params[:item]
+      @item = params[:item]
+      @recipes = Recipe.search(params[:item])
+    else
+      @recipes = Recipe.six_weeks
+    end
   end
 
   def destroy

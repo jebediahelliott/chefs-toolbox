@@ -3,6 +3,7 @@
   Search by Ingredient <%= text_field_tag :item %>
   <%= submit_tag "Search" %>
 <% end %>
+<p>Click <%= link_to "here", user_recipes_path(@user) %> to see Entrees not used in the last 6 weeks</p>
 <h3>Recipes</h3>
 <% @user.recipes.each do |recipe| %>
   <p><%= link_to recipe.name, user_recipe_path(@user, recipe) %></p>
