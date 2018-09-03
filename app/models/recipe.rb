@@ -18,6 +18,10 @@ class Recipe < ApplicationRecord
   #   end
   # end
 
+  def self.six_weeks
+    joins(:menu).where("menus.menu_date < ? and category = ?", (Time.now - 6.weeks), "Entree")
+  end
+
   def self.search(item)
     self.all.collect do |r|
       if r.ingredients.any?{ |i| i.name == item }
