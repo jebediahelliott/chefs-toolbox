@@ -8,7 +8,7 @@
 <% @user.recipes.each do |recipe| %>
   <p><%= link_to recipe.name, user_recipe_path(@user, recipe) %></p>
 <% end %>
-<h3>Menus</h3>
+<h3><%= link_to "Menus", user_menus_path(@user) %></h3>
 <% @user.menus.each do |menu| %>
   <p><%= link_to menu.menu_date, user_menu_path(@user, menu) %></p>
 <% end %>
