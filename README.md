@@ -1,24 +1,12 @@
-# README
+# Chefs Toolbox
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Chefs Toolbox is a recipe and menu management tool for professional chefs. It is used to create recipes and menus as well as track usage of menu items.
 
-Things you may want to cover:
+## Ruby version
+  2.3.3
 
-* Ruby version
+##Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/jebediahelliott/chefs-toolbox. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##License
+[MIT License](https://opensource.org/licenses/MIT).

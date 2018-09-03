@@ -2,7 +2,11 @@ class MenusController < ApplicationController
   before_action :set_menu, only: [:show, :update, :destroy, :edit]
 
   def index
-    @menus = Menu.all
+    if params[:user_id]
+      @menus = User.find(params[:user_id]).menus
+    else
+      @menus = Menu.all
+    end
   end
 
   def new
