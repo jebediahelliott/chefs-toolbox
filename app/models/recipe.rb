@@ -3,7 +3,8 @@ class Recipe < ApplicationRecord
   belongs_to :menu, required: false
   has_many :amounts
   has_many :ingredients, through: :amounts
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
+  validates :name, uniqueness: {scope: :user}
   accepts_nested_attributes_for :amounts, reject_if: proc { |attributes| attributes[:ingredient_amount].blank? && attributes[:ingredient_attributes][:unit].blank? && attributes[:ingredient_attributes][:name].blank?}
 
   # def amounts_attributes=(amounts_attributes)

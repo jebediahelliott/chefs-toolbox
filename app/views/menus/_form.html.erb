@@ -3,7 +3,7 @@
   <p>Week Ending: <%= f.date_select :menu_date %></p>
 
   <p>Monday Lunch: <%= f.text_area :monday_lunch %></p>
-  <p>Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%></p>
+  <p>Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.six_weeks, :id, :name%></p>
 
   <p>Monday Dinner: <%= f.text_area :monday_dinner %></p>
   <p>Recipe: <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name%></p>

@@ -17,3 +17,38 @@ meatloaf.amounts.build(ingredient_amount: "2")
 meatloaf.amounts.last.build_ingredient(unit: "Cups", name: "Milk")
 meatloaf.save
 jeb.recipes << meatloaf
+# recipes = []
+# 100.times do
+#   # use faker to create a new recipe
+# end
+# recipes = [
+#   {
+#     name: "Meatloaf",
+#     category: "Entree",
+#     ingredients: [
+#       {
+#         ingredient_amount: "10",
+#         unit: "lbs",
+#         name: "Ground Beef"
+#       },
+#       {
+#         ingredient_amount: "10",
+#         unit: "lbs",
+#         name: "Ground Beef"
+#       }
+#       {
+#         ingredient_amount: "10",
+#         unit: "lbs",
+#         name: "Ground Beef"
+#       },
+#       {
+#         ingredient_amount: "10",
+#         unit: "lbs",
+#         name: "Ground Beef"
+#       }
+#     ]
+#   }
+# ]
+# recipes.each do |recipe|
+#
+# end
