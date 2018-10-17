@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :menus
   end
 
+  get 'inventory' => 'inventories#index'
+
   resource :sessions, only: [:new, :create, :destroy]
   root 'sessions#new'
   resources :recipes
