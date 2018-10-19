@@ -1,12 +1,22 @@
-# Users can create recipes
-# Recipes have ingredients
-# Users can CRUD recipes
-
-# 1. Create Users, Recipes, Ingredients, Amounts(join table)
-# 2. Users can Sign up
-# 3. Users can login and logout
-# 4. Users can create a recipe
-6. Users can search a recipe by ingredient.
-7. Validations to ensure user can only view or edit their own content.
-# 8. Secure passwords
-9. OmniAuth login
+1. Login page needs to display sign in errors (Switch to Devise?)
+2. Add inventory link to nav bar
+3. Restructure Menu to use a Meal object
+  a. Menu has_many meals
+  b. Meal belongs_to Menu
+  c. Meal has_many Recipes
+  d. Meal has a description attribute
+  e. Meal has a date used attribute
+4. Use a dropdown to associate recipe objects with meal objects
+5. Include create new recipe as part of ^^dropdown
+6. Make ingredient to recipe association an add or create action on a dropdown
+7. Inventory Page
+  a. populate with js
+  b. add ingredient button
+  c. add recipe button
+  e. remove ingredient/recipe buttons
+  f. each line item displays name, amount, and unit
+8. Ingredient Show Page
+  a. generate with js
+  b. include a next button
+  c. link all associated recipes in a sidebar
+  
