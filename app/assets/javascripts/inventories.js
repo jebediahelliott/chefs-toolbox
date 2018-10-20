@@ -1,10 +1,14 @@
 //  Place all the behaviors and hooks related to the matching controller here.
 //  All this logic will automatically be available in application.js.
 $(function() {
-  $('body').append("hello from js");
-  loadInventory();
-})
+  populateInventory();
 
-function loadInventory() {
-  $('body').append('test')
+});
+
+function populateInventory() {
+  $('body').append('hi')
+  $.get("/ingredients", function(result) {
+    debugger;
+    console.log(result);
+  });
 }
