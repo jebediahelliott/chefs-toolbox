@@ -8,7 +8,6 @@ $(function() {
 function populateInventory() {
   $('body').append('hi')
   $.get("/ingredients", function(result) {
-    debugger;
     console.log(result);
   });
 }

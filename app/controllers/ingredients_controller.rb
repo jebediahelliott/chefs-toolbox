@@ -9,7 +9,7 @@ class IngredientsController < ApplicationController
 
   def create
     @ingredient = Ingredient.create(ingredient_params)
-    render json: @ingredient, status 201
+    render json: @ingredient, status: 201
   end
 
   def update
