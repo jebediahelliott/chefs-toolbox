@@ -6,8 +6,18 @@ $(function() {
 });
 
 function populateInventory() {
-  $('body').append('hi')
   $.get("/ingredients", function(result) {
-    console.log(result);
+    result["data"].forEach(function(ingredient) {
+      const name = ingredient["attributes"]["name"]
+      const amount = ingredient["attributes"]["inventory-amount"]
+      const unit = ingredient["attributes"]["unit"]
+      // debugger
+      $('.inventory').append(
+        `<tr>
+          <td>${name}</td>
+          <td>${amount}${unit}</td>
+        </tr>`
+      );
+    })
   });
 }
