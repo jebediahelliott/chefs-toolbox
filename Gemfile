@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers'
 gem 'jquery-rails'
-
+gem 'faker'
 gem 'thin'
 
 gem 'omniauth'

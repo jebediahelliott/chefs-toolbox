@@ -4,7 +4,7 @@ $(function() {
   populateInventory();
 
 });
-
+//function to populate table with ingredients
 function populateInventory() {
   $.get("/ingredients", function(result) {
     result["data"].forEach(function(ingredient) {
@@ -15,7 +15,7 @@ function populateInventory() {
       $('.inventory').append(
         `<tr>
           <td>${name}</td>
-          <td>${amount}${unit}</td>
+          <td>${amount} ${unit}</td>
         </tr>`
       );
     })

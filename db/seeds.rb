@@ -17,6 +17,9 @@ meatloaf.amounts.build(ingredient_amount: "2")
 meatloaf.amounts.last.build_ingredient(unit: "Cups", name: "Milk")
 meatloaf.save
 jeb.recipes << meatloaf
+10.times do
+  Ingredient.create({name: Faker::Food.ingredient, unit: Faker::Food.metric_measurement, inventory_amount: Faker::Number.decimal(1)})
+end
 # recipes = []
 # 100.times do
 #   # use faker to create a new recipe
