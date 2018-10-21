@@ -14,7 +14,7 @@
       <%= link_to "Home", user_path(session[:id]) %>
       <%= link_to "New Recipe", new_user_recipe_path(session[:id]) %>
       <%= link_to "New Menu", new_user_menu_path(session[:id]) %>
-      <%= link_to "Inventory", inventory_path %>
+      <%= link_to "Inventory", inventory_path, onclick: "populateInventory()"%>
       <%= link_to "Log Out", sessions_path, method: :delete %>
     <% end %>
     <%= yield %>
