@@ -7,6 +7,7 @@ $(function() {
 //function to populate table with ingredients
 function populateInventory() {
   $.get("/ingredients", function(result) {
+    //set up page layout
     $('#invPage').html(
       `<table class="inventory">
         <tr>
@@ -16,6 +17,7 @@ function populateInventory() {
       </table>
       <button type="button" onclick="ingredientForm()">Add Ingredient</button>`
     );
+    //populate table
     result["data"].forEach(function(ingredient) {
       const name = ingredient["attributes"]["name"]
       const amount = ingredient["attributes"]["inventory-amount"]
@@ -30,15 +32,26 @@ function populateInventory() {
   });
 }
 
+//Serialize info from new ingredientn form, create new ingredient, display inventory with new ingredient
+function newIngredient() {
+  $('#ingForm').submit(function(event) {
+    event.preventDefault();
+    const values = $(this).serialize();
+    $.post('/ingredients', values).done(function() {
+      populateInventory();
+    })
+  });
+}
+
 //generate form to add an ingredient to the inventory
 function ingredientForm() {
   $('#invPage').html(
     `<h3>New Ingredient</h3>
-    <form action="/ingredients" method="POST">
+    <form id="ingForm" action="/ingredients" method="POST">
       Name: <input type="text" name="name"><br>
       Amount: <input type="text" name="inventory_amount">
       Unit: <input type="text" name="unit"><br>
-      <input type="submit" value="Submit">
+      <input type="submit" onclick="newIngredient()" value="Submit">
     </form>`
   );
 }
