@@ -7,6 +7,10 @@ class IngredientsController < ApplicationController
     render json: @ingredients
   end
 
+  def inventory
+    
+  end
+
   def new
     @ingredient = Ingredient.new
     render json: @ingredient
