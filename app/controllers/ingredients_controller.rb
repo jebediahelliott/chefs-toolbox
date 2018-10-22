@@ -4,26 +4,22 @@ class IngredientsController < ApplicationController
 
   def index
     @ingredients = Ingredient.all
-    render json: @ingredients
   end
 
   def inventory
-    
+
   end
 
   def new
     @ingredient = Ingredient.new
-    render json: @ingredient
   end
 
   def create
-    @ingredient = Ingredient.create(ingredient_params)
-    render json: @ingredient, status: 201
+    @ingredient = Ingredient.create(ingredient_params), status: 201
   end
 
   def update
     @ingredient.update(ingredient_params)
-    render json: @ingredient
   end
 
   def edit
@@ -31,7 +27,6 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    render json: @ingredient
   end
 
   def destroy
