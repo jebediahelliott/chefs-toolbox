@@ -17,11 +17,35 @@ class Ingredient {
   static inventoryTable() {
     $.get("/ingredients", function(result) {
       let ingredients = result["data"];
-      console.log(ingredients);
+      ingredients.forEach(function(ingredient) {
+        let ing = new Ingredient
+        ing.name = ingredient["attributes"]["name"]
+        ing.inventory_amount = ingredient["attributes"]["inventory-amount"]
+        ing.unit = ingredient["attributes"]["unit"]
+        $('.inventory').append(ing.tableFormat())
+        // debugger
+      });
     });
   }
 }
 
+$(function() {
+  Ingredient.inventoryTable();
+});
+
+// function inventoryTable() {
+//   $.get("/ingredients", function(result) {
+//     let ingredients = result["data"];
+//     ingredients.forEach(function(ingredient) {
+//       let ing = new Ingredient
+//       ing.name = ingredient["attributes"]["name"]
+//       ing.inventory_amount = ingredient["attributes"]["inventory-amount"]
+//       ing.unit = ingredient["attributes"]["unit"]
+//       $('.inventory').append(ing.tableFormat())
+//       // debugger
+//     });
+//   });
+// }
 
 
 //function to populate table with ingredients
