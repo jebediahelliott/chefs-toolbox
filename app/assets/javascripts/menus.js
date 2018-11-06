@@ -1,5 +1,5 @@
 class Menu {
-  constructor(monday_lunch, monday_dinner, tuesday_lunch, tuesday_dinner, wednesday_lunch, wednesday_dinner, thursday_lunch, thursday_dinner, friday_lunch, friday_dinner, saturday_lunch, saturday_dinner, sunday_lunch, sunday_dinner) {
+  constructor(menu_date, monday_lunch, monday_dinner, tuesday_lunch, tuesday_dinner, wednesday_lunch, wednesday_dinner, thursday_lunch, thursday_dinner, friday_lunch, friday_dinner, saturday_lunch, saturday_dinner, sunday_lunch, sunday_dinner) {
     this.monday_lunch = monday_lunch
     this.monday_dinner = monday_dinner
     this.tuesday_lunch = tuesday_lunch
@@ -16,5 +16,44 @@ class Menu {
     this.sunday_dinner = sunday_dinner
   }
 
+// generate html to display menu content
+  display() {
+    return `<h1>Week of ${this.menu_date}</h1>
+    <h3>Monday</h3>
+    <h4>Lunch</h4>
+    <p>${this.monday_lunch}</p>
+    <h4>Dinner</h4>
+    <p>${this.monday_dinner}</p>
+    <h3>Tuesday</h3>
+    <h4>Lunch</h4>
+    <p>${this.tuesday_lunch}</p>
+    <h4>Dinner</h4>
+    <p>${this.tuesday_dinner}</p>
+    <h3>Wednesday</h3>
+    <h4>Lunch</h4>
+    <p>${this.wednesday_lunch}</p>
+    <h4>Dinner</h4>
+    <p>${this.wednesday_dinner}</p>
+    <h3>Thursday</h3>
+    <h4>Lunch</h4>
+    <p>${this.thursday_lunch}</p>
+    <h4>Dinner</h4>
+    <p>${this.thursday_dinner}</p>
+    <h3>Friday</h3>
+    <h4>Lunch</h4>
+    <p>${this.friday_lunch}</p>
+    <h4>Dinner</h4>
+    <p>${this.friday_dinner}</p>
+    <h3>Saturday</h3>
+    <h4>Lunch</h4>
+    <p>${this.saturday_lunch}</p>
+    <h4>Dinner</h4>
+    <p>${this.saturday_dinner}</p>
+    <h3>Sunday</h3>
+    <h4>Lunch</h4>
+    <p>${this.sunday_lunch}</p>
+    <h4>Dinner</h4>
+    <p>${this.sunday_dinner}</p>`
+  }
 
 }
