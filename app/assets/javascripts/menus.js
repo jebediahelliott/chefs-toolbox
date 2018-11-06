@@ -1,5 +1,5 @@
 class Menu {
-  constructor(menu_date, monday_lunch, monday_dinner, tuesday_lunch, tuesday_dinner, wednesday_lunch, wednesday_dinner, thursday_lunch, thursday_dinner, friday_lunch, friday_dinner, saturday_lunch, saturday_dinner, sunday_lunch, sunday_dinner) {
+  constructor(menu_date, id, user_id, monday_lunch, monday_dinner, tuesday_lunch, tuesday_dinner, wednesday_lunch, wednesday_dinner, thursday_lunch, thursday_dinner, friday_lunch, friday_dinner, saturday_lunch, saturday_dinner, sunday_lunch, sunday_dinner) {
     this.monday_lunch = monday_lunch
     this.monday_dinner = monday_dinner
     this.tuesday_lunch = tuesday_lunch
@@ -53,7 +53,8 @@ class Menu {
     <h4>Lunch</h4>
     <p>${this.sunday_lunch}</p>
     <h4>Dinner</h4>
-    <p>${this.sunday_dinner}</p>`
+    <p>${this.sunday_dinner}</p>
+    <a href="/user/${this.user_id}/menus/${this.id}/edit">Edit</a>`
   }
 
 }

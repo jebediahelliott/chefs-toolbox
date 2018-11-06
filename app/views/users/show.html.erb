@@ -11,7 +11,7 @@
   <% end %>
   <h3><%= link_to "Menus", user_menus_path(@user) %></h3>
   <% @user.menus.each do |menu| %>
-    <p><%= link_to menu.menu_date, user_menu_path(@user, menu) %></p>
+    <p><a href="#" onclick="getMenu(<%= user_menu_path(@user, menu) %>)"><%= menu.menu_date %></p>
   <% end %>
   <a href="#" onclick="Ingredient.inventoryTable()">Inventory</a>
 </div>
