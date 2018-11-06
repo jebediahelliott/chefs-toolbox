@@ -7,31 +7,39 @@ class Ingredient {
     this.inventory_amount = inventory_amount;
   }
 
-  tableFormat() {
+  static tableFormat() {
+    return `<table class="inventory">
+      <tr>
+        <th>Ingredient Name</th>
+        <th>Amount On Hand</th>
+      </tr>
+    </table>
+    <button type="button" onclick="newIngredient()">Add Ingredient</button>`
+  }
+
+  tableRow() {
     return `<tr>
       <td>${this.name}</td>
       <td>${this.inventory_amount} ${this.unit}</td>
     </tr>`
   }
-
+// retrieve ingredients and display in a table
   static inventoryTable() {
     $.get("/ingredients", function(result) {
       let ingredients = result["data"];
+      $('#homePage').html(Ingredient.tableFormat());
       ingredients.forEach(function(ingredient) {
-        let ing = new Ingredient
-        ing.name = ingredient["attributes"]["name"]
-        ing.inventory_amount = ingredient["attributes"]["inventory-amount"]
-        ing.unit = ingredient["attributes"]["unit"]
-        $('.inventory').append(ing.tableFormat())
-        // debugger
+        let ing = new Ingredient(ingredient["attributes"]["name"], ingredient["attributes"]["unit"], ingredient["attributes"]["inventory-amount"])
+        $('.inventory').append(ing.tableRow())
       });
     });
   }
+
 }
 
-$(function() {
-  Ingredient.inventoryTable();
-});
+// $(function() {
+//   $('#homePage').
+// });
 
 // function inventoryTable() {
 //   $.get("/ingredients", function(result) {
