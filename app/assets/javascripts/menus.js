@@ -16,6 +16,12 @@ class Menu {
     this.sunday_dinner = sunday_dinner
   }
 
+  static getMenu(path) {
+    $.get(path, function(result) {
+      console.log(result);
+    })
+  }
+
 // generate html to display menu content
   display() {
     return `<h1>Week of ${this.menu_date}</h1>
