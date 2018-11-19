@@ -1,5 +1,5 @@
 class Menu {
-  constructor(menu_date, id, user_id, monday_lunch, monday_dinner, tuesday_lunch, tuesday_dinner, wednesday_lunch, wednesday_dinner, thursday_lunch, thursday_dinner, friday_lunch, friday_dinner, saturday_lunch, saturday_dinner, sunday_lunch, sunday_dinner) {
+  constructor(menu_date, monday_lunch, monday_dinner, tuesday_lunch, tuesday_dinner, wednesday_lunch, wednesday_dinner, thursday_lunch, thursday_dinner, friday_lunch, friday_dinner, saturday_lunch, saturday_dinner, sunday_lunch, sunday_dinner) {
     this.monday_lunch = monday_lunch
     this.monday_dinner = monday_dinner
     this.tuesday_lunch = tuesday_lunch
@@ -14,12 +14,20 @@ class Menu {
     this.saturday_dinner = saturday_dinner
     this.sunday_lunch = sunday_lunch
     this.sunday_dinner = sunday_dinner
+    this.menu_date = menu_date
   }
 
   static getMenu(path) {
-    $.get(path, function(result) {
-      console.log(result);
-    })
+    // $.get(path, function(result) {
+    //   console.log(result);
+    // })
+    fetch(path)
+    .then(response => response.json())
+    .then(function(json) {
+      let menu = new Menu(json.data.attributes["menu-date"], json.data.attributes["monday-lunch"], json.data.attributes["monday-dinner"], json.data.attributes["tuesday-lunch"], json.data.attributes["tuesday-dinner"], json.data.attributes["wednesday-lunch"], json.data.attributes["wednesday-dinner"], json.data.attributes["thursday-lunch"], json.data.attributes["thursday-dinner"], json.data.attributes["friday-lunch"], json.data.attributes["friday-dinner"], json.data.attributes["saturday-lunch"], json.data.attributes["saturday-dinner"], json.data.attributes["sunday-lunch"], json.data.attributes["sunday-dinner"])
+      document.getElementById('homePage').innerHTML = menu.display()
+    }
+    );
   }
 
 // generate html to display menu content
@@ -59,8 +67,7 @@ class Menu {
     <h4>Lunch</h4>
     <p>${this.sunday_lunch}</p>
     <h4>Dinner</h4>
-    <p>${this.sunday_dinner}</p>
-    <a href="/user/${this.user_id}/menus/${this.id}/edit">Edit</a>`
+    <p>${this.sunday_dinner}</p>`
   }
 
 }
