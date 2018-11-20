@@ -18,16 +18,12 @@ class Menu {
   }
 
   static getMenu(path) {
-    // $.get(path, function(result) {
-    //   console.log(result);
-    // })
     fetch(path)
     .then(response => response.json())
     .then(function(json) {
       let menu = new Menu(json.data.attributes["menu-date"], json.data.attributes["monday-lunch"], json.data.attributes["monday-dinner"], json.data.attributes["tuesday-lunch"], json.data.attributes["tuesday-dinner"], json.data.attributes["wednesday-lunch"], json.data.attributes["wednesday-dinner"], json.data.attributes["thursday-lunch"], json.data.attributes["thursday-dinner"], json.data.attributes["friday-lunch"], json.data.attributes["friday-dinner"], json.data.attributes["saturday-lunch"], json.data.attributes["saturday-dinner"], json.data.attributes["sunday-lunch"], json.data.attributes["sunday-dinner"])
       document.getElementById('homePage').innerHTML = menu.display()
-    }
-    );
+    });
   }
 
 // generate html to display menu content
