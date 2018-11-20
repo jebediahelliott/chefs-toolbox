@@ -7,7 +7,7 @@ class Ingredient {
     this.unit = unit;
     this.inventory_amount = inventory_amount;
   }
-
+  // table structure for inentory
   static tableFormat() {
     return `<table class="inventory">
       <tr>
@@ -16,9 +16,9 @@ class Ingredient {
         <th>New Amount</th>
       </tr>
     </table>
-    <button type="button" onclick="newIngredient()">Add Ingredient</button>`
+    <button type="button" onclick="Ingredient.newIngredient()">Add Ingredient</button>`
   }
-
+  // individual rows for inventory table with form to update amounts
   tableRow() {
     return `<tr>
       <td>${this.name}</td>
@@ -33,9 +33,34 @@ class Ingredient {
       </td>
     </tr>`
   }
+  // form to add new ingredients to inventory and listeners to process form submission
+  static newIngredient() {
+    document.getElementById('homePage').innerHTML = `
+    <form id="newIngredientForm">
+      <p>Name<br>
+      <input type="text" name="ingredient[name]"></p>
+      <p>Unit<br>
+      <input type="text" name="ingredient[unit]"></p>
+      <p>Amount<br>
+      <input type="text" name="ingredient[inventory_amount]"></p>
+      <input type="submit" value="Create New Ingredient">
+    </form>`
+    document.getElementById('newIngredientForm').addEventListener("submit", function(event) {
+      event.preventDefault();
+      var values = $(this).serialize();
+      $.ajax({
+        method: "POST",
+        url: "/ingredients",
+        data: values
+      })
+      .done(function(result) {
+        Ingredient.inventoryTable()
+      })
+    })
+  }
 
 
-// retrieve ingredients and display in a table
+  // retrieve ingredients and display in a table
   static inventoryTable() {
     $.get("/ingredients", function(result) {
       let ingredients = result["data"];
@@ -44,6 +69,7 @@ class Ingredient {
         let ing = new Ingredient(ingredient.id, ingredient["attributes"]["name"], ingredient["attributes"]["unit"], ingredient["attributes"]["inventory-amount"]);
         if (ing.inventory_amount > 0) {
           $('.inventory').append(ing.tableRow());
+          // Add listeners to update buttons, send request to update ingredient and display updated table
           document.getElementById(`${ing.id}`).addEventListener("submit", function(event) {
             event.preventDefault();
             var values = $(this).serialize();
@@ -59,17 +85,6 @@ class Ingredient {
         }
       });
 
-      // $('body').append(
-      //   `<script type="text/javascript" charset="utf-8">
-      //     $(function () {
-      //       $('form').submit(function(event) {
-      //         event.preventDefault();
-      //         console.log("hello");
-      //         debugger
-      //       });
-      //     });
-      //   </script>`
-      // )
     });
   }
 
