@@ -8,7 +8,7 @@ class IngredientsController < ApplicationController
   end
 
   def inventory
-    
+
   end
 
   def new

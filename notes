@@ -19,4 +19,7 @@
   a. generate with js
   b. include a next button
   c. link all associated recipes in a sidebar
-  
+
+Questions to solve in refactoring:
+1. Is there a way to send a patch request to update inventory_amount from inventory view
+2. Why does inventory move updated item to bottom of list/how to control order inventory is shown?

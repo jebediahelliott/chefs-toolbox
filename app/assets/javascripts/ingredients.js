@@ -1,7 +1,8 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 class Ingredient {
-  constructor(name, unit, inventory_amount) {
+  constructor(id, name, unit, inventory_amount) {
+    this.id = id
     this.name = name;
     this.unit = unit;
     this.inventory_amount = inventory_amount;
@@ -12,6 +13,7 @@ class Ingredient {
       <tr>
         <th>Ingredient Name</th>
         <th>Amount On Hand</th>
+        <th>New Amount</th>
       </tr>
     </table>
     <button type="button" onclick="newIngredient()">Add Ingredient</button>`
@@ -21,21 +23,58 @@ class Ingredient {
     return `<tr>
       <td>${this.name}</td>
       <td>${this.inventory_amount} ${this.unit}</td>
+      <td>
+        <form id="${this.id}">
+          <input type="hidden" name="ingredient[name]" value="${this.name}">
+          <input type="hidden" name="ingredient[unit]" value="${this.unit}">
+          <input type="text" name="ingredient[inventory_amount]">
+          <input type="submit" value="Update Amount">
+        </form>
+      </td>
     </tr>`
   }
+
+
 // retrieve ingredients and display in a table
   static inventoryTable() {
     $.get("/ingredients", function(result) {
       let ingredients = result["data"];
       $('#homePage').html(Ingredient.tableFormat());
       ingredients.forEach(function(ingredient) {
-        let ing = new Ingredient(ingredient["attributes"]["name"], ingredient["attributes"]["unit"], ingredient["attributes"]["inventory-amount"])
-        $('.inventory').append(ing.tableRow())
+        let ing = new Ingredient(ingredient.id, ingredient["attributes"]["name"], ingredient["attributes"]["unit"], ingredient["attributes"]["inventory-amount"]);
+        if (ing.inventory_amount > 0) {
+          $('.inventory').append(ing.tableRow());
+          document.getElementById(`${ing.id}`).addEventListener("submit", function(event) {
+            event.preventDefault();
+            var values = $(this).serialize();
+            $.ajax({
+              method: "PUT",
+              url: `/ingredients/${this.id}`,
+              data: values
+            })
+            .done(function() {
+              Ingredient.inventoryTable();
+            });
+          });
+        }
       });
+
+      // $('body').append(
+      //   `<script type="text/javascript" charset="utf-8">
+      //     $(function () {
+      //       $('form').submit(function(event) {
+      //         event.preventDefault();
+      //         console.log("hello");
+      //         debugger
+      //       });
+      //     });
+      //   </script>`
+      // )
     });
   }
 
 }
+
 
 // $(function() {
 //   $('#homePage').
