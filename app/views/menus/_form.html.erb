@@ -5,8 +5,7 @@
 
   <p>Monday Lunch<br>
   <%= f.text_area :monday_lunch %>
-  Recipes Used For This Meal: <%= f.collection_select(:id, Ingredient.all, :menu_id, :name) %></p>
-
+  <%= select_tag :menu_id, options_from_collection_for_select(Recipe.all, :id, :name), multiple: true %>
   <p>Monday Dinner<br>
   <%= f.text_area :monday_dinner %></p>
 

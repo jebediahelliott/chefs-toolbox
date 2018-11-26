@@ -35,7 +35,7 @@ class MenusController < ApplicationController
   end
 
   def show
-    render json: @menu 
+    render json: @menu
   end
 
   def destroy
