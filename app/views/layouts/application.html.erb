@@ -18,9 +18,8 @@
       <a href="#" onclick="Ingredient.inventoryTable()">Inventory</a>
       <%= link_to "Log Out", sessions_path, method: :delete %>
     <% end %>
-    <%= yield %>
-    <footer>
-      <%= link_to "Menus From Other Chefs", menus_path %>
-    </footer>
+    <div id="homePage">
+      <%= yield %>
+    </div>
   </body>
 </html>
