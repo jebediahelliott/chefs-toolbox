@@ -35,7 +35,10 @@ class MenusController < ApplicationController
   end
 
   def show
-    render json: @menu
+    respond_to do |format|
+      format.html
+      format.json {render json: @menu}
+    end
   end
 
   def destroy

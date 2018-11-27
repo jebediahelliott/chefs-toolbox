@@ -82,7 +82,8 @@ class Menu {
     <h4>Lunch</h4>
     <p>${this.sunday_lunch}</p>
     <h4>Dinner</h4>
-    <p>${this.sunday_dinner}</p>`
+    <p>${this.sunday_dinner}</p>
+    <a href="/menus/${this.id}/edit">Edit</a>`
   }
 
 }

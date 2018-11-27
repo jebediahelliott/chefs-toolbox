@@ -10,7 +10,7 @@ class Recipe < ApplicationRecord
 
   # Search for Entree Items not used in the previous 6 weeks
   def self.six_weeks
-    joins(:menu).where("menus.menu_date < ? and category = ?", (Time.now - 6.weeks), "Entree")
+    joins(:menu).where("category = ? and menus.menu_date < ?", "Entree", (Time.now - 6.weeks))
   end
 
   # Search for Recipes that include a specific ingredient

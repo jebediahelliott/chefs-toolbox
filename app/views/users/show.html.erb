@@ -10,5 +10,5 @@
 <% end %>
 <h3><%= link_to "Menus", user_menus_path(@user) %></h3>
 <% @user.menus.each do |menu| %>
-  <p><a href="#" data-id="<%= menu.id %>" onclick="Menu.getMenu('/users/<%= menu.user_id %>/menus/<%= menu.id %>')"><%= menu.menu_date %></a></p>
+  <p><a href="#" data-id="<%= menu.id %>" onclick="Menu.getMenu('/users/<%= menu.user_id %>/menus/<%= menu.id %>.json')"><%= menu.menu_date %></a></p>
 <% end %>

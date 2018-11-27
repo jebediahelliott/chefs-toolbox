@@ -45,7 +45,7 @@
   <p>Sunday Dinner<br>
   <%= f.text_area :sunday_dinner %></p>
   <p>Select Recipes Used For This Menu</p>
-  <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name %>
+  <p><%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name %></p>
 
   <%= f.submit %>
 <% end %>
