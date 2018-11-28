@@ -62,7 +62,7 @@ class Ingredient {
 
   // retrieve ingredients and display in a table
   static inventoryTable() {
-    $.get("/ingredients", function(result) {
+    $.get("/ingredients.json", function(result) {
       let ingredients = result["data"];
       $('#homePage').html(Ingredient.tableFormat());
       ingredients.forEach(function(ingredient) {
