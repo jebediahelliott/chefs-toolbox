@@ -23,6 +23,7 @@ class Menu {
     }
   }
 
+  // List links to all recipes associated to menu
   recipeCall() {
     document.getElementById('homePage').innerHTML = '';
     this.recipes.forEach(function(recipe){
@@ -30,6 +31,18 @@ class Menu {
     })
   }
 
+  static menuRecipes(path) {
+    fetch(path)
+    .then(response => response.json())
+    .then(function(json) {
+      const meals = json.data.attributes;
+      const recipes = json.data.relationships.recipes.data
+      const menu = new Menu(json.data.id, meals["menu-date"], meals["monday-lunch"], meals["monday-dinner"], meals["tuesday-lunch"], meals["tuesday-dinner"], meals["wednesday-lunch"], meals["wednesday-dinner"], meals["thursday-lunch"], meals["thursday-dinner"], meals["friday-lunch"], meals["friday-dinner"], meals["saturday-lunch"], meals["saturday-dinner"], meals["sunday-lunch"], meals["sunday-dinner"], recipes)
+      menu.recipeCall();
+    });
+  }
+
+  // Create menu object and display with listener on button to display recipes
   static getMenu(path) {
     fetch(path)
     .then(response => response.json())
