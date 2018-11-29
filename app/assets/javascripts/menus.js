@@ -1,20 +1,20 @@
 class Menu {
-  constructor(id, menu_date, monday_lunch, monday_dinner, tuesday_lunch, tuesday_dinner, wednesday_lunch, wednesday_dinner, thursday_lunch, thursday_dinner, friday_lunch, friday_dinner, saturday_lunch, saturday_dinner, sunday_lunch, sunday_dinner, recipes) {
-    this.monday_lunch = monday_lunch
-    this.monday_dinner = monday_dinner
-    this.tuesday_lunch = tuesday_lunch
-    this.tuesday_dinner = tuesday_dinner
-    this.wednesday_lunch = wednesday_lunch
-    this.wednesday_dinner = wednesday_dinner
-    this.thursday_lunch = thursday_lunch
-    this.thursday_dinner = thursday_dinner
-    this.friday_lunch = friday_lunch
-    this.friday_dinner = friday_dinner
-    this.saturday_lunch = saturday_lunch
-    this.saturday_dinner = saturday_dinner
-    this.sunday_lunch = sunday_lunch
-    this.sunday_dinner = sunday_dinner
-    this.menu_date = menu_date
+  constructor(id, menuDate, mondayLunch, mondayDinner, tuesdayLunch, tuesdayDinner, wednesdayLunch, wednesdayDinner, thursdayLunch, thursdayDinner, fridayLunch, fridayDinner, saturdayLunch, saturdayDinner, sundayLunch, sundayDinner, recipes) {
+    this.mondayLunch = mondayLunch
+    this.mondayDinner = mondayDinner
+    this.tuesdayLunch = tuesdayLunch
+    this.tuesdayDinner = tuesdayDinner
+    this.wednesdayLunch = wednesdayLunch
+    this.wednesdayDinner = wednesdayDinner
+    this.thursdayLunch = thursdayLunch
+    this.thursdayDinner = thursdayDinner
+    this.fridayLunch = fridayLunch
+    this.fridayDinner = fridayDinner
+    this.saturdayLunch = saturdayLunch
+    this.saturdayDinner = saturdayDinner
+    this.sundayLunch = sundayLunch
+    this.sundayDinner = sundayDinner
+    this.menuDate = menuDate
     this.id = id
     if (recipes) {
       this.recipes = recipes
@@ -59,43 +59,43 @@ class Menu {
 
 // generate html to display menu content
   display() {
-    return `<h1>Week of ${this.menu_date}</h1>
+    return `<h1>Week of ${this.menuDate}</h1>
     <button id="recipes">This Week's Recipes</button>
     <h3>Monday</h3>
     <h4>Lunch</h4>
-    <p>${this.monday_lunch}</p>
+    <p>${this.mondayLunch}</p>
     <h4>Dinner</h4>
-    <p>${this.monday_dinner}</p>
+    <p>${this.mondayDinner}</p>
     <h3>Tuesday</h3>
     <h4>Lunch</h4>
-    <p>${this.tuesday_lunch}</p>
+    <p>${this.tuesdayLunch}</p>
     <h4>Dinner</h4>
-    <p>${this.tuesday_dinner}</p>
+    <p>${this.tuesdayDinner}</p>
     <h3>Wednesday</h3>
     <h4>Lunch</h4>
-    <p>${this.wednesday_lunch}</p>
+    <p>${this.wednesdayLunch}</p>
     <h4>Dinner</h4>
-    <p>${this.wednesday_dinner}</p>
+    <p>${this.wednesdayDinner}</p>
     <h3>Thursday</h3>
     <h4>Lunch</h4>
-    <p>${this.thursday_lunch}</p>
+    <p>${this.thursdayLunch}</p>
     <h4>Dinner</h4>
-    <p>${this.thursday_dinner}</p>
+    <p>${this.thursdayDinner}</p>
     <h3>Friday</h3>
     <h4>Lunch</h4>
-    <p>${this.friday_lunch}</p>
+    <p>${this.fridayLunch}</p>
     <h4>Dinner</h4>
-    <p>${this.friday_dinner}</p>
+    <p>${this.fridayDinner}</p>
     <h3>Saturday</h3>
     <h4>Lunch</h4>
-    <p>${this.saturday_lunch}</p>
+    <p>${this.saturdayLunch}</p>
     <h4>Dinner</h4>
-    <p>${this.saturday_dinner}</p>
+    <p>${this.saturdayDinner}</p>
     <h3>Sunday</h3>
     <h4>Lunch</h4>
-    <p>${this.sunday_lunch}</p>
+    <p>${this.sundayLunch}</p>
     <h4>Dinner</h4>
-    <p>${this.sunday_dinner}</p>
+    <p>${this.sundayDinner}</p>
     <a href="/menus/${this.id}/edit">Edit</a>`
   }
 
