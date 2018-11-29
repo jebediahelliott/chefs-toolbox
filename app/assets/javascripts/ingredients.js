@@ -18,6 +18,7 @@ class Ingredient {
     </table>
     <button type="button" onclick="Ingredient.newIngredient()">Add Ingredient</button>`
   }
+
   // individual rows for inventory table with form to update amounts
   tableRow() {
     return `<tr>
@@ -64,6 +65,19 @@ class Ingredient {
   static inventoryTable() {
     $.get("/ingredients.json", function(result) {
       let ingredients = result["data"];
+      ingredients.sort(function(a, b) {
+        const nameA = a["attributes"]["name"].toUpperCase()
+        const nameB = b["attributes"]["name"].toUpperCase()
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+
+        // names must be equal
+        return 0;
+      });
       $('#homePage').html(Ingredient.tableFormat());
       ingredients.forEach(function(ingredient) {
         const ing = new Ingredient(ingredient.id, ingredient["attributes"]["name"], ingredient["attributes"]["unit"], ingredient["attributes"]["inventory-amount"]);
