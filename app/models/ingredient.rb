@@ -1,5 +1,4 @@
 class Ingredient < ApplicationRecord
-  attribute :inventory_amount, :float, default: 0
   has_many :amounts
   has_many :recipes, through: :amounts
 
