@@ -11,5 +11,8 @@ Fork and clone the repo. Run "rails db:migrate" or "rails db:setup" in the termi
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/jebediahelliott/chefs-toolbox. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
+## Blog Post
+[http://jebediahelliott.com/my_rails_project_and_the_double_nested_form]
+
 ## License
 [MIT License](https://opensource.org/licenses/MIT).
